@@ -71,25 +71,39 @@
         <div id="content">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Bio</a>
+                <a class="nav-link active" myData="bio" href="#">Bio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Projects</a>
+                <a class="nav-link" myData="projects" href="#">Projects</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Skills</a>
+                <a class="nav-link" myData="skills" href="#">Skills</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Hobbies</a>
+                <a class="nav-link" myData="hobbies" href="#">Hobbies</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Resume</a>
+                <a class="nav-link" myData="resume" href="#">Resume</a>
             </li>
         </ul>
         <div class="page">
-            <img class="col-sm-4 col-xs-12" style="padding:0; display: inline-block; vertical-align: top;" src="me.jpg"><div class="col-sm-1 col-xs-0" style="padding:0; display: inline-block;"></div><div class="col-sm-7 col-xs-12" style="padding:0; display: inline-block; vertical-align: top;">
-                <p class="text-center">I'm Kevin Stratmeyer. I'm a full stack developer / software engineer looking for an amazing new oportunity. I just finished a 14 week program (Coding Dojo) working over 1000 hours, in which I learned Python (Django and Flask), Java (Spring Boot) and MEAN. A few years ago I had to drop out of Boston University, where I was studying computer science, due to family issues. When I started to have time I looked to get back to the tech world. Realizing that I didn't want to wait 2 more years in accademics, I joined Coding Dojo to jumpstart my career in the tech world.<br>I'm passionate about video games, especially games with online multiplayer capabilities. My goal is to build great multiplayer online games that also fight against the preditory practices most "Free to play" games use.</p>
+            <div id="bio">
+                <img class="col-sm-4 col-xs-12" style="padding:0; display: inline-block; vertical-align: top;" src="me.jpg"><div class="col-sm-1 col-xs-0" style="padding:0; display: inline-block;"></div><div class="col-sm-7 col-xs-12" style="padding:0; display: inline-block; vertical-align: top;">
+                    <p class="text-center">I'm Kevin Stratmeyer. I'm a full stack developer / software engineer looking for an amazing new oportunity. I just finished a 14 week program (Coding Dojo) working over 1000 hours, in which I learned Python (Django and Flask), Java (Spring Boot) and MEAN. A few years ago I had to drop out of Boston University, where I was studying computer science, due to family issues. When I started to have time I looked to get back to the tech world. Realizing that I didn't want to wait 2 more years in accademics, I joined Coding Dojo to jumpstart my career in the tech world.<br>I'm passionate about video games, especially games with online multiplayer capabilities. My goal is to build great multiplayer online games that also fight against the preditory practices most "Free to play" games use.</p>
+                </div>
+            </div> 
+            <div id="projects" class="d-none">
+                <p>Projects</p>
             </div>
+            <div id="skills" class="d-none">
+                <p>Skills</p>
+            </div>
+            <div id="hobbies" class="d-none">
+                <p>Hobbies</p>
+            </div>
+            <div id="resume" class="d-none">
+                <p>Resume</p>
+            </div>  
         </div>
         </div>
         <footer id="footer" class="text-center">
@@ -98,5 +112,13 @@
             <a href="mailto:kevjs@bu.edu"><img class="footerImg" src="img/email.png">Send me an email!</a>
         </footer>
     </div>
+    <script>
+        $('a.nav-link').click(function(){
+            $('.nav-link').removeClass('active');
+            $(this).addClass('active');
+            $(".page").children().addClass('d-none');
+            $("#"+$(this).attr('myData')).removeClass('d-none');
+        });
+    </script>
 </body>
 </html>
